@@ -1,0 +1,12 @@
+name: "Build docker image"
+on:
+  pull_request:
+    paths:
+      - "pnpm"
+
+jobs:
+  build:
+    name: "Build Docker image"
+    uses: ./.github/workflows/build-docker-image.yaml
+    with:
+      image-dir: pnpm
