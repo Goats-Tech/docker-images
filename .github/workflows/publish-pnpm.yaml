@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         image-name: [pnpm]
-        image-tag: [alpine, latest]
+        image-tag: [alpine, latest, node:18-alpine]
         image-dir: [pnpm]
         include:
           - registry-username: fernandoarteaga

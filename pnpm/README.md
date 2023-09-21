@@ -6,7 +6,7 @@ Packages installed:
 
 ### Build the image
 ```shell
-docker build -t fernandoarteaga/pnpm:alpine .
+docker build -t pnpm:alpine .
 ```
 
 ### Push the image
