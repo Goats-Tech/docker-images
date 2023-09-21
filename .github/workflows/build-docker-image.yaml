@@ -1,0 +1,17 @@
+name: "Build docker image"
+on:
+  workflow_call:
+      image-dir:
+        description: "The name of the directory where the Dockerfile is located"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    name: "Build/Publish Docker image"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Build docker image"
+        working-directory: ${{ inputs.image-dir }}
+        run: docker build -t test .
