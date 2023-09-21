@@ -2,7 +2,7 @@ name: "Build pnpm docker image"
 on:
   pull_request:
     paths:
-      - "pnpm"
+      - "pnpm/**"
 
 jobs:
   build:
