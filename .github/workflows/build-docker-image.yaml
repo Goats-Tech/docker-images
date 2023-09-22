@@ -1,6 +1,7 @@
 name: "Build docker image"
 on:
   workflow_call:
+    inputs:
       image-dir:
         description: "The name of the directory where the Dockerfile is located"
         required: true

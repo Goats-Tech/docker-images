@@ -4,7 +4,7 @@ Packages installed:
 * NodeJS 18 alpine
 * [pnpm 8.x](https://www.npmjs.com/package/pnpm)
 
-### Build the image
+### Build docker image
 ```shell
 docker build -t pnpm:alpine .
 ```
