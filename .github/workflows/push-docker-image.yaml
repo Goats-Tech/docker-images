@@ -11,7 +11,6 @@ on:
         required: true
         type: string
 
-
 jobs:
   publish:
     name: "Build/Publish Docker image"
@@ -29,7 +28,7 @@ jobs:
           registry: "ghcr.io"
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract metadata (tags, labels) for Docker
+      - name: "Extract metadata (tags, labels) for Docker"
         id: meta
         uses: docker/metadata-action@v5
         with:
@@ -38,12 +37,11 @@ jobs:
             ghcr.io/${{ github.repository }}/${{ inputs.image-name }}
           flavor: |
             latest=auto
-            prefix=v
           tags: |
-            type=semver,pattern={{version}}
             type=sha
-            type=ref,event=tag
-      - name: Build and push Docker images
+            # set latest tag for main branch
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+      - name: "Build and push Docker images"
         uses: docker/build-push-action@v5
         with:
           context: ${{ inputs.dockerfile-dir }}
